@@ -1,7 +1,8 @@
-import React, { useState} from 'react'
+import React, { useState } from 'react'
 import { PageHeader, Input, Button } from 'antd'
 const { TextArea } = Input;
 import db from '../firebase'
+import { navigate } from '@reach/router'
 
 const CreatePost = (props) => {
 
@@ -18,6 +19,10 @@ const CreatePost = (props) => {
             .then(function (doc) {
                 console.log("Ton article à bien été enregistré !", doc.id)
             })
+            
+        setTitle('')
+        setContent('')
+        navigate(`/posts`)
     }
 
     return(
